@@ -1,3 +1,7 @@
+output "user_assigned_identities_id" {
+  description = "Map of id values across all user_assigned_identities, keyed the same as var.user_assigned_identities"
+  value       = { for k, v in azurerm_user_assigned_identity.user_assigned_identities : k => v.id }
+}
 output "user_assigned_identities_client_id" {
   description = "Map of client_id values across all user_assigned_identities, keyed the same as var.user_assigned_identities"
   value       = { for k, v in azurerm_user_assigned_identity.user_assigned_identities : k => v.client_id }
